@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require("puppeteer");
 
 async function run() {
     const browser = await puppeteer.launch();
@@ -21,8 +21,6 @@ async function run() {
     // Method 2
     // const title2 = await page.title();
     // console.log(title2);
-
-    
 
     await browser.close();
 }
