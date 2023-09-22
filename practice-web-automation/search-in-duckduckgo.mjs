@@ -27,7 +27,7 @@ await page.waitForSelector("#searchbox_input");
 await page.type("#searchbox_input", "best burger restaurant in dhaka");
 await page.click("[aria-label='Search']");
 await page.waitForSelector('[data-testid="result"]');
-await page.screenshot({ path: "best-burger-place-in-dhaka.png" });
+await page.screenshot({ path: "practice-web-scraping/best-burger-place-in-dhaka-2.png" });
 */
 
 /* #############
