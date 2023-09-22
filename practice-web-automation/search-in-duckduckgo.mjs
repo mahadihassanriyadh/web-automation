@@ -1,5 +1,4 @@
 import puppeteer from "puppeteer";
-import { setTimeout } from "timers/promises";
 
 const browser = await puppeteer.launch({
     headless: false,
@@ -13,6 +12,7 @@ const browser = await puppeteer.launch({
 ############################################## */
 
 const page = await browser.newPage();
+
 // searchbox_input
 await page.goto("https://duckduckgo.com/", {
     waitUntil: "networkidle2",
@@ -22,21 +22,23 @@ await page.goto("https://duckduckgo.com/", {
 /* #############
 #### WAY 01 ####
 ############# */
-
-// await page.waitForSelector("#searchbox_input");
-// await page.type("#searchbox_input", "best burger restaurant in dhaka");
-// await page.click("[aria-label='Search']");
-// await page.waitForSelector('[data-testid="result"]');
-// await page.screenshot({ path: "best-burger-place-in-dhaka.png" });
+/* 
+await page.waitForSelector("#searchbox_input");
+await page.type("#searchbox_input", "best burger restaurant in dhaka");
+await page.click("[aria-label='Search']");
+await page.waitForSelector('[data-testid="result"]');
+await page.screenshot({ path: "best-burger-place-in-dhaka.png" });
+*/
 
 /* #############
 #### WAY 02 ####
 ############# */
-const searchBarHanlde = await page.waitForSelector("#searchbox_input");
-await searchBarHanlde.type("best burger restaurant in dhaka");
+/* 
+const searchBarHandle = await page.waitForSelector("#searchbox_input");
+await searchBarHandle.type("best burger restaurant in dhaka");
 
-const searchButtonHanlde = await page.waitForSelector("[aria-label='Search']");
-await searchButtonHanlde.click();
+const searchButtonHandle = await page.waitForSelector("[aria-label='Search']");
+await searchButtonHandle.click();
 
 const firstResult = await page.waitForSelector('[data-testid="result"]');
 await firstResult.screenshot({
@@ -46,10 +48,13 @@ await firstResult.screenshot({
 await page.screenshot({
     path: "practice-web-scraping/best-burger-place-in-dhaka-2.png",
 });
+*/
 
-
-// Resources / Cheat Sheets to help with CSS Selectors
-// https://flukeout.github.io/
-// https://frontend30.com/
-// https://devhints.io/xpath
-// https://devhints.io/css
+await browser.close();
+/* 
+##### Resources / Cheat Sheets to help with CSS Selectors #####
+https://flukeout.github.io/
+https://frontend30.com/
+https://devhints.io/xpath
+https://devhints.io/css
+*/

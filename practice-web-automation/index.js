@@ -13,12 +13,13 @@ async function run() {
 
     // All the HTML of the page
     // const html = await page.content();
+    // console.log(html);
 
-    // Method 1
+    // Method 1: Get the title of the page
     // const title1 = await page.evaluate(() => document.title);
     // console.log(title1);
 
-    // Method 2
+    // Method 2: Get the title of the page
     // const title2 = await page.title();
     // console.log(title2);
 

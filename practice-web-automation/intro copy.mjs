@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer";
+import { setTimeout } from "timers/promises";
 
 const browser = await puppeteer.launch({
     headless: false,
@@ -12,6 +13,7 @@ await page.goto("https://www.google.com/", {
     waitUntil: "networkidle2",
     timeout: 60000,
 });
+await page.screenshot({ path: "google-screenshot.png" });
 
 // taking a screenshot
 // await page.screenshot({path: 'screenshot.png', fullPage: true});
@@ -31,4 +33,19 @@ await page.goto("https://www.google.com/", {
 // const title2 = await page.title();
 // console.log(title2);
 
+await page.goto("https://devconfbd.com/");
+await page.screenshot({ path: "devconfbd-screenshot.png" });
+await page.waitForSelector("img[alt='guest']");
+await page.click("img[alt='guest']");
+await setTimeout(() => { }, 1000);
+await page.screenshot({ path: "guest.png" });
+const guestElement = await page.waitForSelector("img[alt='guest']");
+await guestElement.scrollIntoView();
+await setTimeout(1000);
+await guestElement.click();
+await setTimeout(1000);
+await page.screenshot({ path: "guest.png" });
+/* ##############################################
+############ Collecting the sponsors ############
+############################################## */
 await browser.close();
