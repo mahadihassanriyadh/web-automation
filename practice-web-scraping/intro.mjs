@@ -27,5 +27,7 @@ await setTimeout(1000);
 await guestElement.click();
 await setTimeout(1000);
 await page.screenshot({ path: "guest.png" });
-
+/* ##############################################
+############ Collecting the sponsors ############
+############################################## */
 await browser.close();
